@@ -11,3 +11,5 @@ router.get('/:id',autoController.getOne);
 router.delete('/:id',autoController.delete);
 //UPDATE
 router.put('/:id',autoController.update);
+
+module.exports = router;
