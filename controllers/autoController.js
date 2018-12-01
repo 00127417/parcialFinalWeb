@@ -36,7 +36,7 @@ autoController.getAll = function(req,res){
         }else{
             res.json({
                 ok: true,
-                autos
+                autos: autos
             })
         }
     });
@@ -53,7 +53,7 @@ autoController.getOne = function(req,res){
         }else{
             res.json({
                 ok: true,
-                auto
+                auto: auto
             })
         }
     });
@@ -66,7 +66,7 @@ autoController.update = function(req,res){
         uv: req.body.uv,
         descripcion: req.body.descripcion
     }
-    autoModel.findByIdAndUpdate(req.params.id,data,function(err, auto){
+    autoModel.findByIdAndUpdate(req.params.id,data,function(err, nuevo){
         if(err){
             res.status(500);
             res.json({
@@ -75,8 +75,27 @@ autoController.update = function(req,res){
         }else{
             res.json({
                 ok: true,
-                auto
+                nuevo: nuevo
             })
         }
     });
 };
+
+
+autoController.delete = function(req,res){
+    autoModel.findByIdAndDelete(req.params.id,function(err, old){
+        if(err){
+            res.status(500);
+            res.json({
+                ok: false
+            });
+        }else{
+            res.json({
+                ok: true,
+                viejo: old
+            })
+        }
+    });
+};
+
+module.exports = autoController;
