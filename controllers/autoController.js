@@ -11,17 +11,14 @@ autoController.create = function(req,res){
     }
 
     let nuevoAuto = new autoModel(data);
-    nuevoAuto.save(function(err,res){
+    nuevoAuto.save(function(err,datos){
         if(err){
             res.status(500);
             res.json({
                 ok: false
             });
         }else{
-            res.json({
-                ok: true,
-                nuevo: data
-            })
+            res.json({ok: true, nuevo: datos});
         }
     });
 };

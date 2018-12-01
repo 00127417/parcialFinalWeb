@@ -2,14 +2,14 @@ extends layout
 
 block content
   h1 Administrador de tareas
-  form(action="/autos", method="post" name="formMain")
+  .error
+  form(name="formMain")
     input#nombe(type="text", name="nombre")
     input#uv(type="text", name="uv")
     input#descripcion(type="text", name="descripcion")
     input(type="submit", value="Guardar")
   table
     thead
-      th #
       th nombre
       th uv
       th descripcion
