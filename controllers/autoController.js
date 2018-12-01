@@ -1,4 +1,4 @@
-var mongoose = requiere('mongoose'),
+var mongoose = require('mongoose'),
     autoModel = require('../models/auto');
 
 autoController = {};

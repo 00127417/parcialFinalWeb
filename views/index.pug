@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 Administrador de tareas
-  form(action="", method="post")
+  form(action="/autos", method="post" name="formMain")
     input#nombe(type="text", name="nombre")
     input#uv(type="text", name="uv")
     input#descripcion(type="text", name="descripcion")
@@ -14,4 +14,6 @@ block content
       th uv
       th descripcion
       th opciones
-    tbody.materias
+    tbody.autos
+
+  
