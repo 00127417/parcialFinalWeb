@@ -3,13 +3,14 @@ extends layout
 block content
   h1 Administrador de tareas
   .error
-  form(name="formMain")
-    input#nombe(type="text", name="nombre")
-    input#uv(type="text", name="uv")
-    input#descripcion(type="text", name="descripcion")
-    input(type="submit", value="Guardar")
+  form(action="/api/Estudiante", method="POST" name="formMain" class="formu")
+    input#nombe(type="text", name="nombre" class="inp" placeholder="campo1")
+    input#uv(type="text", name="uv" class="inp" placeholder="campo2")
+    input#descripcion(type="text", name="descripcion" class="inp" placeholder="campo3")
+    input(type="submit", value="Guardar" class="guardar")
   table
     thead
+      th #
       th nombre
       th uv
       th descripcion

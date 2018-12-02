@@ -18,7 +18,8 @@ autoController.create = function(req,res){
                 ok: false
             });
         }else{
-            res.json({ok: true, nuevo: datos});
+            res.status(200)
+            res.json({ok: true, info: datos, nuevo: nuevoAuto});
         }
     });
 };
@@ -31,6 +32,7 @@ autoController.getAll = function(req,res){
                 ok: false
             });
         }else{
+            res.status(200)
             res.json({
                 ok: true,
                 autos: autos
@@ -48,6 +50,7 @@ autoController.getOne = function(req,res){
                 ok: false
             });
         }else{
+            res.status(200)
             res.json({
                 ok: true,
                 auto: auto
@@ -70,6 +73,7 @@ autoController.update = function(req,res){
                 ok: false
             });
         }else{
+            res.status(200)
             res.json({
                 ok: true,
                 nuevo: nuevo

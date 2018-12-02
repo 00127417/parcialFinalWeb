@@ -1,20 +1,24 @@
 window.onload = () => {
+    app.addEvent();
     app.init();
+
 
 }
 
 let app = {
 
-    init: function () {
-        this.addEvent();
-        this.loadContent();
-    },
-
     addEvent: function () {
-        document.formMain.addEventListener('submit', function (event) {
+        document.formMain.addEventListener("submit", function (event) {
             this.submit(event, this.addRow);
         })
     },
+
+    init: function () {
+        
+        this.loadContent();
+    },
+
+
 
     addRow: function (data) {
         
@@ -62,7 +66,7 @@ let app = {
                 descripcion: formu.descripcion.value
             }
 
-            fetch('/autos' + data._id, {
+            fetch('/api/Estudiante/' + data._id, {
                 method: 'PUT',
                 body: JSON.stringify(datos),
                 headers: { 'Content-Type': 'application/json' }
@@ -91,7 +95,7 @@ let app = {
 
     delete: function (event, tr, tbody, data) {
         event.preventDefault();
-        fetch('/autos' + data._id, {
+        fetch('/api/Estudiante/' + data._id, {
             method: 'DELETE'})
             .then(res => res.json())
             .then(resData => {
@@ -105,12 +109,13 @@ let app = {
 
     submit: (event,addRow) => {
         event.preventDefault();
+        alert('hola')
         let datos ={
             nombre: fromMain.nombre.value,
             uv: formMain.uv.value,
             descripcion: fromMain.descripcion.value
         }
-        fetch('/',{
+        fetch('/api/Estudiante',{
             method: 'POST',
             body: JSON.stringify(datos),
             headers: { 'Content-Type': 'application/json' }
@@ -125,7 +130,7 @@ let app = {
 
     },
     loadContent: function () {
-        fetch('/')
+        fetch('/api/Estudiante')
         .then(res => res.json())
             .then(data=>{
                 if(data.ok){
